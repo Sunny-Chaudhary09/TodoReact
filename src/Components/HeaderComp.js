@@ -14,7 +14,7 @@ const HeaderComp = ({
 const styles = StyleSheet.create({
     container: {
 
-        
+        // height:34,
         justifyContent:'center',
         width:"100%",
         alignItems:'center'

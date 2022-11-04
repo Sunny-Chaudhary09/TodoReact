@@ -12,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 export default function Onboarding() {
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderComp title="Todoist" />
+      <HeaderComp text="Todoist" />
       <Swiper style={styles.wrapper} showsButtons={false}>
         <View style={styles.slideView}>
           <Image source={imagePath.Onboard_1}></Image>

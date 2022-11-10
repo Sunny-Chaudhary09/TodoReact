@@ -1,23 +1,73 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View,TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import HeaderComp from '../../Components/HeaderComp';
+import ButtonComp from '../../Components/ButtonComp';
+import TextInputComp from '../../Components/TextInputComp';
+import { styles } from './styles';
+import NavigationStrings from '../../constants/NavigationStrings'
+
 
 // create a component
-const Login = () => {
+const Login = ({navigation,route}) => {
+
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+
+    const moveNext = () => {
+      navigation.navigate(NavigationStrings.HOME)
+     }
+
     return (
-        <View style={styles.container}>
-            <Text>Todoist</Text>
+        <SafeAreaView style = {styles.container}>
+         <HeaderComp text="Todoist" />
+
+         <View style={styles.inputStyle}>
+         <TextInputComp 
+          title='Login'
+          value={email}
+          placeholder='E-mail Address'
+          onChangeText={(val) => {
+            setEmail(val)
+        }}
+          
+         />
+
+         <TextInputComp 
+         value={password}     
+          placeholder='Password'
+          onChangeText={(val) => {
+            setPassword(val)
+        }}
+          
+         />
+
+         <Text style={styles.forgetStyle}> Forget Password </Text>
+
+         <View style={styles.btnStyle}>
+
+        <ButtonComp
+        onPress={moveNext} 
+        btnText='Login'></ButtonComp>
+
         </View>
+
+        <View style={styles.signnupbtnView}>
+        <Text style={styles.lastLine}> Don't have an account?</Text>
+        <TouchableOpacity onPress={()=>{
+         navigation.navigate(NavigationStrings.SIGNUP)
+        }}>
+          <Text style={styles.lastlinebtn}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
+
+        </View>
+
+        </SafeAreaView>
     );
 };
 
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#FFFFFF',
-    },
-});
 
-//make this component available to the app
+
 export default Login;

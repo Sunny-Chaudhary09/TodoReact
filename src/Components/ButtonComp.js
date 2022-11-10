@@ -5,7 +5,7 @@ import { height, moderateScale } from '../styles/responsiveSize';
 
 const ButtonComp = (
     {
-        btnText = 'Sign Up',
+        btnText = '',
         onPress = () => { },
         btnImage,
         btnStyle
@@ -14,7 +14,7 @@ const ButtonComp = (
     return (
         <TouchableOpacity style={{...style.container,...btnStyle}}
             onPress={onPress}
-           
+            
             >
             <Text style={style.btnTextStyle}>{btnText}</Text>
         </TouchableOpacity>
@@ -22,7 +22,7 @@ const ButtonComp = (
 };
 const style = StyleSheet.create({
     container: {
-        width:'100%',
+    
         backgroundColor:colorsPath.PURPLE,
         alignItems:'center',
         justifyContent:'center',

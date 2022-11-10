@@ -7,7 +7,7 @@ import Routes  from './src/Navigation/Routes';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Routes/>
+     <Routes/>
     </View>
   );
 };

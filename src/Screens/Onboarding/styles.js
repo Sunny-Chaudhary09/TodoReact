@@ -18,7 +18,7 @@ export const styles = StyleSheet.create(
         slideText: {
             color: colorPath.PURPLE,
             fontSize: textScale(23),
-            marginTop: moderateScaleVertical(45),
+            marginTop: moderateScaleVertical(64),
             marginHorizontal: moderateScale(16),
             fontWeight: "bold"
         },

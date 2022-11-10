@@ -2,18 +2,20 @@
 import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Onbording from '../Screens/Onboarding/Onbording';
+import MainStack from './MainStack';
+import AuthStack from './AuthStack';
 
 const Stack = createNativeStackNavigator();
 
-const Routes = () => {
-    return (
-      <NavigationContainer>
-       <Stack.Navigator screenOptions={{headerShown:false}}>
-          <Stack.Screen name="Onboarding" component={Onbording}/>
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  };
 
-  export default Routes
+const Routes = () => {
+  return (
+    <NavigationContainer>
+  
+        {true ? MainStack(Stack) : AuthStack(Stack)}
+ 
+    </NavigationContainer>
+  )
+}
+
+export default Routes

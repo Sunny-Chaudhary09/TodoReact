@@ -40,6 +40,7 @@ export default function AddTask({ navigation, route }) {
     let onBack = () => {
         navigation.navigate(Navigationstrings.HOME)
     }
+    
     return (
         <SafeAreaView style={styles.container}>
 

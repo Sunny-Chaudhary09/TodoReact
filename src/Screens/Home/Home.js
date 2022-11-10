@@ -13,7 +13,7 @@ export default function Home({ navigation, route }) {
     const paramdata = route.params
     if (!!paramdata) { setdata(paramdata) }
   }
-
+  
   useEffect(() => {
     fetchdata()
   }, [route?.params])

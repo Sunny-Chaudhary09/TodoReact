@@ -7,5 +7,6 @@ export default {
     PROFILE:'Profile',
     CLOCK:'Clock',
     CALENDER:"Calender",
-    BTM:'BottomTabs'
+    BTM:'BottomTabs',
+    TESTSCREEN:'TestScreen'
 }

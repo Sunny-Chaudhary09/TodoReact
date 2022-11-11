@@ -14,15 +14,14 @@ export default function AddTask({ navigation, route }) {
     // const [date, setDate] = useState(new Date())
     // const [open, setOpen] = useState(false)
     const prevData = route.params
-    const [openmodal, setmodal] = useState(false)
-
+  
     const [title, settitle] = useState(null)
     const [notes, setnotes] = useState(null)
     const [isModalVisible, setModalVisible] = useState(false);
 
-    const toggleModal = () => {
-      setModalVisible(!isModalVisible);
-    };
+    // const toggleModal = () => {
+    //     setModalVisible(!isModalVisible);
+    // };
 
     let onAddbtn = () => {
         if (title == null) {
@@ -87,9 +86,11 @@ export default function AddTask({ navigation, route }) {
             onPress={onAddbtn}
              ></ButtonComp>
             </View>
-            <Modal isVisible={openmodal} style={styles.modalmain} >
+            <Modal isVisible={isModalVisible} style={styles.modalmain} >
                 <TouchableOpacity onPress={() => {
                     // const currData = [{ title: title, notes: notes }]
+
+                    setModalVisible(!isModalVisible)
                     navigation.navigate(Navigationstrings.HOME)
                 }}
                     style={styles.modalview}>
@@ -97,6 +98,7 @@ export default function AddTask({ navigation, route }) {
                     <Text style={styles.modaltext}>Your Reminder has been added.</Text>
                 </TouchableOpacity>
             </Modal>
+
         </SafeAreaView>
     )
 }

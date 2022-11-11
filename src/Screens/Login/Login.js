@@ -4,7 +4,6 @@ import { Text, View,TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderComp from '../../Components/HeaderComp';
 import ButtonComp from '../../Components/ButtonComp';
-import TextInputComp from '../../Components/TextInputComp';
 import { styles } from './styles';
 import NavigationStrings from '../../constants/NavigationStrings'
 

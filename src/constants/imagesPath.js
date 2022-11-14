@@ -14,6 +14,4 @@ export default{
     i_back:require('../assets/images/ic_back.png'),
     ic_tick_modal:require('../assets/images/ic_tick.png'),
     ic_clock:require('../assets/images/ic_time1.png')
-
-
 }

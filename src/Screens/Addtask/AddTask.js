@@ -7,7 +7,6 @@ import ButtonComp from '../../Components/ButtonComp'
 import Navigationstrings from '../../constants/NavigationStrings'
 import Modal from "react-native-modal";
 import store from '../../Redux/store'
-import { Addreducer } from '../../Redux/reducer'
 import { addtodo } from '../../Redux/action'
 
 export default function Addtask({ navigation, route }) {
@@ -18,7 +17,7 @@ export default function Addtask({ navigation, route }) {
     let onmodalclick=() =>
     {       setmodal(!openmodal)
             store.dispatch(addtodo(title,notes))
-            // navigation.navigate(Navigationstrings.HOME)
+             navigation.navigate(Navigationstrings.HOME)
     }
 
     let onAddbtn = () => {

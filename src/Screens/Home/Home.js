@@ -9,6 +9,7 @@ import { moderateScale } from '../../styles/responsiveSize'
 import { useSelector } from 'react-redux'
 
 export default function Home({ navigation, route }) {
+  
   const rdata=useSelector(state => state.userdata)
 
   const renderItemfun = ({ item, index }) => {
@@ -19,7 +20,6 @@ export default function Home({ navigation, route }) {
       </View>
     )
   }
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerView}>
@@ -30,7 +30,7 @@ export default function Home({ navigation, route }) {
         <View style={styles.taskCompleted}>
           <Text style={styles.taskComptext}>Daily Tasks</Text>
           <View style={styles.tickimg}>
-            <Image source={imagePath.i_tick} ></Image>
+            <Image source={imagePath.ic_tick_green} ></Image>
             <Text style={styles.taskComptext2} > 5/10</Text>
             <Text style={styles.taskComptext3} > Tasks completed</Text>
           </View>

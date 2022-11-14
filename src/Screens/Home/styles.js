@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
         height: moderateScale(150),
         borderRadius: moderateScale(10),
         marginHorizontal: moderateScale(16),
-        padding: moderateScale(16)
+        padding: moderateScale(8)
     },
     taskComptext: {
         color: colorPath.BLUE,
@@ -46,6 +46,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: moderateScale(30),
+        marginTop:25,
         borderRadius: moderateScale(5),
         width: moderateScale(150)
     },
@@ -97,6 +98,7 @@ export const styles = StyleSheet.create({
         right: moderateScale(160)
     },
     flatview: {
+        flexDirection:'row',
         marginTop: verticalScale(20),
         padding: moderateScale(10),
         backgroundColor: colorPath.WHITE,

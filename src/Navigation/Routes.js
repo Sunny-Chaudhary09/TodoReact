@@ -6,14 +6,10 @@ import MainStack from './MainStack';
 import AuthStack from './AuthStack';
 
 const Stack = createNativeStackNavigator();
-
-
 const Routes = () => {
   return (
-    <NavigationContainer>
-  
+    <NavigationContainer >
         {true ? MainStack(Stack) : AuthStack(Stack)}
- 
     </NavigationContainer>
   )
 }

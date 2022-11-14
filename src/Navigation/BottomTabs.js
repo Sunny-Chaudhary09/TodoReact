@@ -66,7 +66,7 @@ export default BottomTabs
 
 const styles = StyleSheet.create({
     container: {
-        headerShown: false,
+        headerShown:false,
         tabBarShowLabel: false,
         tabBarStyle: {
             position: 'absolute',

@@ -3,20 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from './styles'
 import imagePath from '../../constants/imagesPath'
- import * as Progress from 'react-native-progress';
-
+import * as Progress from 'react-native-progress';
+import colorsPath from '../../constants/colorsPath'
+import { moderateScale } from '../../styles/responsiveSize'
+import { useSelector } from 'react-redux'
 
 export default function Home({ navigation, route }) {
-
-  const [data, setdata] = useState([])
-  const fetchdata = () => {
-    const paramdata = route.params
-    if (!!paramdata) { setdata(paramdata) }
-  }
-  
-  useEffect(() => {
-    fetchdata()
-  }, [route?.params])
+  const rdata=useSelector(state => state.userdata)
 
   const renderItemfun = ({ item, index }) => {
     return (
@@ -33,17 +26,34 @@ export default function Home({ navigation, route }) {
         <Text style={styles.headerText1}>Hello Lorem !</Text>
         <Text style={styles.headerText2}>Let's start with todays tasks.</Text>
       </View>
-      <View style={styles.taskCompleted}>
-        <Text style={styles.taskComptext}>Daily Tasks</Text>
-        <View style={styles.tickimg}>
-          <Image source={imagePath.ic_tick_green} ></Image>
-          <Text style={styles.taskComptext2} > 5/10</Text>
-          <Text style={styles.taskComptext3} > Tasks completed</Text>
-            
+      <View style={styles.progressmainview}>
+        <View style={styles.taskCompleted}>
+          <Text style={styles.taskComptext}>Daily Tasks</Text>
+          <View style={styles.tickimg}>
+            <Image source={imagePath.i_tick} ></Image>
+            <Text style={styles.taskComptext2} > 5/10</Text>
+            <Text style={styles.taskComptext3} > Tasks completed</Text>
+          </View>
+          <TouchableOpacity style={styles.viewtaskbtn}>
+            <Text style={styles.viewtaskbtntxt}>View Tasks</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.viewtaskbtn}>
-          <Text style={styles.viewtaskbtntxt}>View Tasks</Text>
-        </TouchableOpacity>
+        <View style={styles.progressStyle}>
+          <Progress.Circle
+            size={100}
+            indeterminate={false}
+            color={colorsPath.PURPLE}
+            progress={moderateScale(0.7)}
+            showsText={true}
+            thickness={moderateScale(15)}
+            unfilledColor={colorsPath.LIGHTGREY}
+            borderWidth={0}
+            strokeCap="round"
+          />
+        </View>
+      </View>
+      <View>
+
       </View>
       <View style={styles.TimeperiodView}>
         <Text style={styles.Timeperiod}>Daily</Text>
@@ -56,7 +66,7 @@ export default function Home({ navigation, route }) {
       </View>
       <View>
         <FlatList
-          data={data}
+          data={rdata}
           renderItem={renderItemfun}
         />
       </View>

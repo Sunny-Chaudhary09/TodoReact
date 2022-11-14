@@ -4,6 +4,7 @@ import { height, moderateScale } from "../styles/responsiveSize";
 import colorsPath from "../constants/colorsPath";
 
 
+
 const TextInputComp = ({
     img = '',
     title = '',

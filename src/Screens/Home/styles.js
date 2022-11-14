@@ -106,5 +106,14 @@ export const styles = StyleSheet.create({
     flatText:{
         color:colorPath.PURPLE,
         fontWeight:'bold'
+    },
+    progressmainview: {
+        flexDirection: 'row',
+        marginTop: verticalScale(20),
+        padding: moderateScale(10),
+        backgroundColor: colorPath.WHITE,
+        borderRadius: moderateScale(10),
+        marginHorizontal: moderateScale(16)
     }
+    
 });

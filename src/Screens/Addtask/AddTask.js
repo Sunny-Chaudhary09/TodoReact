@@ -4,42 +4,39 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import imagePath from '../../constants/imagesPath'
 import { styles } from './styles'
 import ButtonComp from '../../Components/ButtonComp'
-// import DatePicker from 'react-native-date-picker'
-
 import Navigationstrings from '../../constants/NavigationStrings'
 import Modal from "react-native-modal";
+import store from '../../Redux/store'
+import { Addreducer } from '../../Redux/reducer'
+import { addtodo } from '../../Redux/action'
 
-
-export default function AddTask({ navigation, route }) {
-    // const [date, setDate] = useState(new Date())
-    // const [open, setOpen] = useState(false)
-    const prevData = route.params
-  
+export default function Addtask({ navigation, route }) {
+    const [openmodal, setmodal] = useState(false)
     const [title, settitle] = useState(null)
     const [notes, setnotes] = useState(null)
-    const [isModalVisible, setModalVisible] = useState(false);
 
-    // const toggleModal = () => {
-    //     setModalVisible(!isModalVisible);
-    // };
+    let onmodalclick=() =>
+    {       setmodal(!openmodal)
+            store.dispatch(addtodo(title,notes))
+            // navigation.navigate(Navigationstrings.HOME)
+    }
 
     let onAddbtn = () => {
-        if (title == null) {
+        if (title === null) {
             alert("please enter title...")
             return;
         }
-        if (notes == null) {
+        if (notes === null) {
             alert("please enter description...")
             return;
         }
         if (title !== null && notes !== null) {
-            setModalVisible(!isModalVisible)
+            setmodal(!openmodal)
         }
     }
     let onBack = () => {
         navigation.navigate(Navigationstrings.HOME)
     }
-    
     return (
         <SafeAreaView style={styles.container}>
 
@@ -79,26 +76,18 @@ export default function AddTask({ navigation, route }) {
                     <Text>Time</Text>
                 </TouchableOpacity>
             </View>
-
             <View style={styles.btnStyle}>
-
-            <ButtonComp btnText='ADD'
-            onPress={onAddbtn}
-             ></ButtonComp>
+            <ButtonComp  btnText='Add' onPress={onAddbtn}></ButtonComp>
             </View>
-            <Modal isVisible={isModalVisible} style={styles.modalmain} >
+            <Modal isVisible={openmodal} style={styles.modalmain} >
                 <TouchableOpacity onPress={() => {
-                    // const currData = [{ title: title, notes: notes }]
-
-                    setModalVisible(!isModalVisible)
-                    navigation.navigate(Navigationstrings.HOME)
+                  onmodalclick()
                 }}
                     style={styles.modalview}>
                     <Image source={imagePath.ic_tick_modal}></Image>
                     <Text style={styles.modaltext}>Your Reminder has been added.</Text>
                 </TouchableOpacity>
             </Modal>
-
         </SafeAreaView>
     )
 }

@@ -6,6 +6,7 @@ import HeaderComp from '../../Components/HeaderComp';
 import ButtonComp from '../../Components/ButtonComp';
 import { styles } from './styles';
 import NavigationStrings from '../../constants/NavigationStrings'
+import TextInputComp from '../../Components/TextInputComp';
 
 
 // create a component

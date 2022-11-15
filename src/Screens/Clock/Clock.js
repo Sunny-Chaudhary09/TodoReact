@@ -6,28 +6,27 @@ import { View, Text, FlatList,Image } from 'react-native';
 import axios from 'axios';
 
 
-
 const Clock = () => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [maindata, setData] = useState([]);
-
+    const [offset, setOffset] = useState(0);
+   
   useEffect(() => {
-    setIsLoading(true)
     myData()
    }, []);
-
-
- const myData = async() => {
+                        
+   const myData = async() => {
     try {
-      const res = await axios.get("https://dummyjson.com/products?skip=0&limit=20")
-      const mainData=res.data.products
-      setData(mainData)
-      console.log("my api data",mainData)
-      setIsLoading(false);
-    } catch (error) {
+      const prevdata=maindata
+      const res = await axios.get(`https://dummyjson.com/products?skip=${offset}&limit=20`)
+      const currData=res.data.products
+      setOffset(offset+20)
+      setData([...prevdata,...currData])
+      
+    } 
+    catch (error) {
       console.log("error riased")
-      setIsLoading(false);
     }
   }
 
@@ -39,7 +38,6 @@ const Clock = () => {
             <Text style={styles.flatText}>{item.title}</Text>
             <Text style={styles.flatText} numberOfLines={5}>{item.description}</Text>
             </View>
-          
         </View>
       )
     }
@@ -50,13 +48,18 @@ const Clock = () => {
            <FlatList
           data={maindata}
           renderItem={renderItemfun}
-          onEndReached={this.onEndReached}
-         />
+          ListFooterComponent={()=>{return(
+            <View>
+              <Text>no items in list</Text>
+            </View>
+          )}}
+          onEndReachedThreshold={1}
+          onEndReached={()=>{myData()}}
+            />
              </View>
          </SafeAreaView>
          
     );
 };
-
 
 export default Clock;

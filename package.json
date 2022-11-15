@@ -25,6 +25,7 @@
     "react-native-svg": "^13.5.0",
     "react-native-swiper": "^1.6.0",
     "react-navigation": "^4.4.4",
+    "react-paginate": "^8.1.4",
     "react-redux": "^8.0.5",
     "swiper": "^8.4.4"
   },

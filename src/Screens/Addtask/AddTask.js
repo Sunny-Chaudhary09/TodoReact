@@ -21,15 +21,20 @@ export default function Addtask({ navigation, route }) {
     }
 
     let onAddbtn = () => {
-        if (title === null) {
+        if (notes == '' && title== '') {
+            alert("please enter all the fields")
+            return;
+        }
+        if (title == '') {
             alert("please enter title...")
             return;
         }
-        if (notes === null) {
+        if (notes ==  '') {
             alert("please enter description...")
             return;
         }
-        if (title !== null && notes !== null) {
+        
+        else  {
             setmodal(!openmodal)
         }
     }

@@ -12,9 +12,9 @@ const Clock = () => {
     const [maindata, setData] = useState([]);
     const [offset, setOffset] = useState(0);
    
-  useEffect(() => {
-    myData()
-   }, []);
+       useEffect(() => {
+        myData()
+            }, []);
                         
    const myData = async() => {
     try {
@@ -23,7 +23,6 @@ const Clock = () => {
       const currData=res.data.products
       setOffset(offset+20)
       setData([...prevdata,...currData])
-      
     } 
     catch (error) {
       console.log("error riased")

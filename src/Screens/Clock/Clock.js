@@ -18,21 +18,26 @@ const Clock = () => {
                         
    const myData = async() => {
     try {
+      if(offset===100)
+      {return}
       const prevdata=maindata
+      console.log("My sync called")
       const res = await axios.get(`https://dummyjson.com/products?skip=${offset}&limit=20`)
       const currData=res.data.products
+      console.log("Api data",currData)
       setOffset(offset+20)
       setData([...prevdata,...currData])
     } 
     catch (error) {
       console.log("error riased")
     }
+    
   }
 
     const renderItemfun = ({ item, index }) => {
       return (
         <View style={styles.flatview}>
-             <Image source={{uri:item.thumbnail}} style={{height:60,width:60}} ></Image>
+             <Image source={{uri:item.thumbnail}} style={{height:150,width:300}} ></Image>
             <View style={{flexDirection:'column'}}>
             <Text style={styles.flatText}>{item.title}</Text>
             <Text style={styles.flatText} numberOfLines={5}>{item.description}</Text>
@@ -42,13 +47,14 @@ const Clock = () => {
     }
 
     return (    
+      
          <SafeAreaView style={styles.container}>
            <View>
            <FlatList
           data={maindata}
           renderItem={renderItemfun}
           ListFooterComponent={()=>{return(
-            <View>
+            <View style={{flex:1}}>
               <Text>no items in list</Text>
             </View>
           )}}

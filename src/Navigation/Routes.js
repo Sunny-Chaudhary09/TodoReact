@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 const Routes = () => {
   return (
     <NavigationContainer >
-        {true ? MainStack(Stack) : AuthStack(Stack)}
+        {false ? MainStack(Stack) : AuthStack(Stack)}
     </NavigationContainer>
   )
 }

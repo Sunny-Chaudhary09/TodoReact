@@ -6,12 +6,14 @@ import SignUp from '../Screens/SignUp/SignUp';
 import NavigationStrings from '../constants/NavigationStrings';
 import AddTask from '../Screens/Addtask/AddTask';
 import Home from '../Screens/Home/Home';
+import TestScreen from '../Screens/TestScreen';
 
 
 
 const AuthStack = (Stack) => {
   return (
     <Stack.Navigator  >
+      <Stack.Screen name={NavigationStrings.TESTSCREEN} component={TestScreen} />
       <Stack.Screen name={NavigationStrings.ONBOARDING} component={Onbording} />
       <Stack.Screen name={NavigationStrings.LOGIN} component={Login} />
       <Stack.Screen name={NavigationStrings.SIGNUP} component={SignUp} />

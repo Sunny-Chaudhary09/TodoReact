@@ -8,5 +8,6 @@ export default {
     CLOCK:'Clock',
     CALENDER:"Calender",
     BTM:'BottomTabs',
-    TESTSCREEN:'TestScreen'
+    TESTSCREEN:'TestScreen',
+    DETAILSCREEN:'DetailScreen'
 }

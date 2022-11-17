@@ -2,11 +2,12 @@
 import React, { useState,useEffect } from 'react';
 import { styles } from './style'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { View, Text, FlatList,Image } from 'react-native';
+import { View, Text, FlatList,Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
+import NavigationStrings from '../../constants/NavigationStrings'
 
 
-const Clock = () => {
+const Clock = ({navigation,route}) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [maindata, setData] = useState([]);
@@ -15,6 +16,10 @@ const Clock = () => {
        useEffect(() => {
         myData()
             }, []);
+
+   const moveNext = (item) => {
+        navigation.navigate(NavigationStrings.DETAILSCREEN,{id:item.id})
+   }         
                         
    const myData = async() => {
     try {
@@ -36,13 +41,13 @@ const Clock = () => {
 
     const renderItemfun = ({ item, index }) => {
       return (
-        <View style={styles.flatview}>
+       < TouchableOpacity style={styles.flatview} onPress={()=>{moveNext(item)}}>
              <Image source={{uri:item.thumbnail}} style={{height:150,width:300}} ></Image>
             <View style={{flexDirection:'column'}}>
             <Text style={styles.flatText}>{item.title}</Text>
             <Text style={styles.flatText} numberOfLines={5}>{item.description}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
       )
     }
 

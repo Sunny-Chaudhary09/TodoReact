@@ -15,7 +15,7 @@ const TestScreen = () => {
         setTimeout(() => {
             let output = "";
             mydata.forEach((data,index) =>{
-                output+=`${data.name} + ${data.Profession}`
+                output+=`${" " +data.name + ' '+data.Profession}`
             })
             console.log('checkoutput : ',output)
         },1000
@@ -48,7 +48,7 @@ const TestScreen = () => {
                 let error = false;
                 if(!error){
                     resolve();
-                } else{
+                } else {
                     reject('Something went wrong')
                 }
             },2000
@@ -58,21 +58,17 @@ const TestScreen = () => {
         }
 
 
-    
-    createdata({name:'Vivek',Profession:'Software Engineer'})
-    .then(getData)
-    .catch(err => console.log(err))
+    //  createdata({name:'Vivek',Profession:'Software Engineer'})
+    // .then(getData)
+    // .catch(err => console.log(err))
 
     // Async & Await
 
-    // async function start(){
-    //     await createdata({name:'Vivek',Profession:'Software Engineer'}) 
-    //     getData()
-    // }
-    // start()
-
-
-
+    async function start(){
+        await createdata({name:'Vivek',Profession:'Software Engineer'}) 
+        getData()
+    }
+    start()
 
 };
 

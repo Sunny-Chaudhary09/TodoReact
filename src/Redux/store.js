@@ -1,5 +1,5 @@
 import {createStore} from 'redux'
-import { Addreducer } from './reducer'
+import { Addreducer } from './reducers/reducer'
 
 const store =createStore(Addreducer)
 

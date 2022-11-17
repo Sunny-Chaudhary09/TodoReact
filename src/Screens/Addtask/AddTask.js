@@ -7,7 +7,7 @@ import ButtonComp from '../../Components/ButtonComp'
 import Navigationstrings from '../../constants/NavigationStrings'
 import Modal from "react-native-modal";
 import store from '../../Redux/store'
-import { addtodo } from '../../Redux/action'
+import { addtodo } from '../../Redux/actions/action'
 
 export default function Addtask({ navigation, route }) {
     const [openmodal, setmodal] = useState(false)
